@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .bg {
+    background-image: url("https://img.freepik.com/free-vector/hand-drawn-turkish-food-illustration_23-2149285209.jpg?w=1060&t=st=1691085592~exp=1691086192~hmac=737b47fd66c5c6e7143707e817a7879cce4510ecfe443a3d7511e1fb6eac16f0");
+    height: 100%; 
+    filter: brightness(50%);
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
