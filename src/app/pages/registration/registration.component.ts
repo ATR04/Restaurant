@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class RegistrationComponent {
 
+
+  gotoLogin($event?: any) {
+    console.log("clicked")
+  }
 }
