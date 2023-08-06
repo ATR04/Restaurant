@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -7,8 +8,11 @@ import { Component } from '@angular/core';
 })
 export class RegistrationComponent {
 
+  constructor(private router: Router) {
+
+  }
 
   gotoLogin($event?: any) {
-    console.log("clicked")
+    this.router.navigateByUrl("/login");
   }
 }
