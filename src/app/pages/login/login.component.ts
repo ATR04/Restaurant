@@ -23,9 +23,19 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.user);
-    this.userService.getUser(this.user).subscribe((res) => {
-
-    });
+    this.userService.getUser(this.user).subscribe(
+      {
+        next: (res) => { 
+          if (res.success == true) {
+            alert("Logged in sucessfully");
+            this.user.email = '';
+            this.user.password = '';  
+          } else {
+            alert(res.message);
+          }
+        },
+        error: (err) => { console.log(err); }
+      }
+    )
   }
 }

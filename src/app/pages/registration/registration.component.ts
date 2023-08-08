@@ -23,10 +23,21 @@ export class RegistrationComponent {
   }
 
   register() {
-    console.log(this.user);
-    this.userService.registerUser(this.user).subscribe((res) => {
-      alert("User registered sucessfully");
-    });  
+    this.userService.registerUser(this.user).subscribe(
+      {
+        next : (res) => { 
+          if (res.success == true) {
+            alert("Registration successful!");
+            this.user.email = '';
+            this.user.name = '';
+            this.user.password = '';  
+          } else {
+            alert(res.message);
+          }
+         },
+        error: (err) => { console.log(err); }     
+      }
+    );
   }
 
 }

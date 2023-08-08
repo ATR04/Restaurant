@@ -14,9 +14,12 @@ export class UserService {
 
   getUser(user: UserModel): Observable<any> {
     const observalble = new Observable((subscriber) => {
-      this.http.post(`${this.baseUrl}/getUser`, user).subscribe((res: any) => {
-        
-      });
+      this.http.post(`${this.baseUrl}/getUser`, user).subscribe(
+        {
+          next: (res) => { subscriber.next(res) },
+          error: (err) => { console.log(err); }
+        }
+      );
     });
 
     return observalble;
@@ -24,10 +27,12 @@ export class UserService {
 
   registerUser(user: UserModel): Observable<any> {
     const observalble = new Observable((subscriber) => {
-      this.http.post(`${this.baseUrl}/registerUser`,user).subscribe((res) => {
-        //DO nothing
-      });
-      subscriber.next(true);
+      this.http.post(`${this.baseUrl}/registerUser`,user).subscribe(
+        {
+          next: (res) => { subscriber.next(res) },
+          error: (err) => { console.log(err); }
+        }
+      );
     });
     return observalble;
   }
