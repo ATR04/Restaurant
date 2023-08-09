@@ -4,6 +4,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { ComponentsModule } from '../components/components.module';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: '', 
@@ -16,6 +19,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },{
+    path: 'home',
+    component: HomeComponent
+  },{
+    path: 'contact',
+    component: ContactUsComponent
   }
 
 ];
@@ -23,12 +32,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    ContactUsComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    ComponentsModule
   ]
 })
 export class PagesModule { }

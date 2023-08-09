@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+
+.ml-auto {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.navbar-brand {
+  margin-left: 20px;
+  font-family: 'Vina Sans', cursive;
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+
+.nav-item {
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item :hover {
+    cursor: pointer;
+}
+
+.nav-link,
+.navbar-brand {
+  color: black;
+}

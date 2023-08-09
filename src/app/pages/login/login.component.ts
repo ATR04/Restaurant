@@ -28,6 +28,7 @@ export class LoginComponent {
         next: (res) => { 
           if (res.success == true) {
             alert("Logged in sucessfully");
+            this.router.navigateByUrl('/home');
             this.user.email = '';
             this.user.password = '';  
           } else {

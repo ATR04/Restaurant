@@ -1,1 +1,21 @@
-<p>header works!</p>
+<div class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand">Spizey</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarText">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="changePage('home', $event)">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="changePage('contact', $event)">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="changePage('logout', $event)">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
