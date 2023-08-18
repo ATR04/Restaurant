@@ -1,4 +1,4 @@
-<div class="margin">
+<div class="margin pos-rel">
     <app-header (page)="gotoPage($event)"></app-header>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
@@ -28,6 +28,10 @@
         </a>
       </div>
       <div class="container">
-        <app-menu-card></app-menu-card>
+        <app-menu-card [foodDatas]="foodDatas"></app-menu-card>
       </div>
 </div>
+
+ <!-- Menu popup -->
+
+ <div></div>

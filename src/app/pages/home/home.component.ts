@@ -1,5 +1,6 @@
 import { Component, Injector } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,14 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
+  foodDatas: any;
   router: Router;
+  menuService: MenuService;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
+    this.menuService = injector.get(MenuService);
+    this.getMenu();
   }
 
   gotoPage(page) {
@@ -21,6 +26,13 @@ export class HomeComponent {
     } else {
       this.router.navigateByUrl(`/${page}`);
     }
+  }
+
+  getMenu() {
+    this.menuService.getMenu().subscribe((res) => {
+      this.foodDatas = res;
+    });
+    
   }
   
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-menu-card',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-card.component.scss']
 })
 export class MenuCardComponent {
+
+  @Input('foodDatas') foodDatas: any;
+
+  constructor() {
+
+  }
 
 }

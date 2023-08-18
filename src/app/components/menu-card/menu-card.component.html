@@ -1,32 +1,12 @@
 <div class="row">
-    <div class="card-width col-sm-12 col-md-6 col-lg-4">
+    <div class="card-width col-sm-12 col-md-6 col-lg-4" *ngFor="let menu of foodDatas">
       <div class="card bg-light text-center">
-        <img src="../../../assets/chicken-pizza.jpg" class="card-img-top" alt="...">
+        <img [src]="menu.img" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Chicken Pizza</h5>
-          <p class="card-text">Prize: $10</p>
-          <a href="#" class="btn btn-danger">Order now</a>
+          <h5 class="card-title">{{menu.name}}</h5>
+          <p class="card-text">Prize: {{menu.prize}}</p>
+          <a class="btn btn-danger">Order now</a>
         </div>
       </div>
     </div>
-    <div class="card-width col-sm-12 col-md-6 col-lg-4">
-        <div class="card text-center">
-          <img src="../../../assets/chicken-pizza.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Chicken Pizza</h5>
-            <p class="card-text">Prize: $10</p>
-            <a href="#" class="btn btn-primary">Order now</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-width col-sm-12 col-md-6 col-lg-4">
-        <div class="card text-center">
-          <img src="../../../assets/chicken-pizza.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Chicken Pizza</h5>
-            <p class="card-text">Prize: $10</p>
-            <a href="#" class="btn btn-primary">Order now</a>
-          </div>
-        </div>
-      </div>
   </div>

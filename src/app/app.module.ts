@@ -7,6 +7,7 @@ import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuService } from './services/menu.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     ComponentsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService,MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
