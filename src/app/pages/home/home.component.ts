@@ -12,6 +12,8 @@ export class HomeComponent {
   foodDatas: any;
   router: Router;
   menuService: MenuService;
+  selectedFoodItem: any;
+  isSelected: boolean = false;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
@@ -31,8 +33,12 @@ export class HomeComponent {
   getMenu() {
     this.menuService.getMenu().subscribe((res) => {
       this.foodDatas = res;
-    });
-    
+    });  
+  }
+
+  gotoFoodItem(foodItem: any) {
+    this.selectedFoodItem = foodItem;
+    this.isSelected = true;
   }
   
 }

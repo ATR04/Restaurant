@@ -1,0 +1,22 @@
+<div class="card-width">
+  <div class="card bg-light text-center">
+    <div class="foodImg">
+      <img [src]="foodItem.img" class="card-img-top" alt="...">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title my-4">{{foodItem.name}}</h5>
+      <p class="card-text-prize">Prize : <b>{{foodItem.prize}}</b></p>
+      <div class="quanity my-4">
+        <div class="quanity-text">Quantity : </div>
+        <div class="input">
+          <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-2 "
+            data-field="quantity">
+          <span type="number" name="quantity" class="quantity-field border-0 text-center w-25"> 1 </span>
+          <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm mx-2"
+            data-field="quantity">
+        </div>
+      </div>
+      <a class="btn btn-warning">Add to cart</a>
+    </div>
+  </div>
+</div>
