@@ -15,7 +15,7 @@ export class LoginComponent {
 
   constructor(private router: Router, injector: Injector) {
     this.userService = injector.get(UserService);
-    this.user = new UserModel;
+    this.user = new UserModel();
   }
 
   gotoRegistration($event?: any) {

@@ -72,3 +72,13 @@
 .quanity-text {
     font-size: 1.25rem;
 }
+
+.total {
+    &.my-4{
+        margin-top: 0 !important;
+    }
+}
+
+.total-text {
+    font-size: 1.25rem;
+}

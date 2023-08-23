@@ -1,22 +1,26 @@
 <div class="card-width">
   <div class="card bg-light text-center">
     <div class="foodImg">
-      <img [src]="foodItem.img" class="card-img-top" alt="...">
+      <img [src]="foodMenu.img" class="card-img-top" alt="...">
     </div>
     <div class="card-body">
-      <h5 class="card-title my-4">{{foodItem.name}}</h5>
-      <p class="card-text-prize">Prize : <b>{{foodItem.prize}}</b></p>
+      <h5 class="card-title my-4">{{foodMenu.name}}</h5>
+      <p class="card-text-prize">Prize : <b>${{foodMenu.prize}}</b></p>
       <div class="quanity my-4">
         <div class="quanity-text">Quantity : </div>
         <div class="input">
           <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-2 "
-            data-field="quantity">
-          <span type="number" name="quantity" class="quantity-field border-0 text-center w-25"> 1 </span>
+            data-field="quantity" (click)="decrease($event)">
+          <span type="number" name="quantity" class="quantity-field border-0 text-center w-25"> {{foodMenu.quantity}} </span>
           <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm mx-2"
-            data-field="quantity">
+            data-field="quantity" (click)="increase($event)">
         </div>
       </div>
-      <a class="btn btn-warning">Add to cart</a>
+      <div class="total my-4">
+        <div class="total-text">Total : <span>${{foodMenu.total}}</span></div>
+
+      </div>
+      <a class="btn btn-warning" (click)="addToCart($event)">Add to cart</a>
     </div>
   </div>
 </div>

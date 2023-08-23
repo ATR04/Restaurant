@@ -40,5 +40,9 @@ export class HomeComponent {
     this.selectedFoodItem = foodItem;
     this.isSelected = true;
   }
+
+  addtoCart($event) {
+    this.isSelected = false;
+  }
   
 }

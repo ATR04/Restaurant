@@ -33,6 +33,6 @@
     </div>
   </ng-container>
   <div *ngIf="isSelected">
-    <app-food-item [selectedFoodItem]="selectedFoodItem"></app-food-item>
+    <app-food-item [selectedFoodItem]="selectedFoodItem" (addtoCart)="addtoCart($event)"></app-food-item>
   </div>
 </div>
