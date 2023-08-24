@@ -1,5 +1,6 @@
 import { Component, Injector } from '@angular/core';
 import { Router } from '@angular/router';
+import { FoodMenu} from '../../model/foodMenu'
 
 @Component({
   selector: 'app-contact-us',
@@ -8,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ContactUsComponent {
   router: Router;
+  foodItems: FoodMenu[] = [];
+  totalPrize: number = 0;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
+    this.getFoodItems();
   }
 
   gotoPage(page) {
@@ -19,6 +23,16 @@ export class ContactUsComponent {
       this.router.navigateByUrl("/login");
     } else {
       this.router.navigateByUrl(`/${page}`);
+    }
+  }
+
+  getFoodItems() {
+    this.foodItems = JSON.parse(localStorage.getItem('foodOrders'));
+
+    if(this.foodItems) {
+      this.foodItems.forEach((foodItem) => {
+        this.totalPrize += foodItem.total;
+      });
     }
   }
   

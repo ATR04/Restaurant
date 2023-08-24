@@ -1,3 +1,79 @@
 .margin {
     margin: 50px 200px;
 }
+
+.cart-container {
+    height: 125px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: all 0.25s ease-out;
+    &:hover {
+        scale: 1.01;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+}
+
+.total-container {
+    height: 75px;
+    width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:40px;
+    padding-right:40px;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.25s ease-out;
+    &:hover {
+        scale: 1.01;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+}
+
+.food-img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.food-name-container {
+    width: 200px;
+    font-size: 1.3rem;
+}
+
+.food-prize {
+    font-size: 1.2rem;
+}
+
+.food-edit-conatainer {
+    align-items: center;
+}
+
+.edit-img {
+    width: 40px;
+    height: 40px;
+    &:hover {
+        cursor: pointer;
+        scale:1.05;
+    }
+}
+
+.food-remove {
+    margin-right: 20px !important;
+}
+
+.remove-img {
+    width: 36px;
+    height: 36px;
+    &:hover {
+        cursor: pointer;
+        scale:1.05;
+    }
+}
+
+.total-orderAmt {
+    font-size: 1.3rem;
+}
