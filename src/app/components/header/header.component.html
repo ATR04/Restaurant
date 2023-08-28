@@ -10,6 +10,7 @@
           <a class="nav-link" (click)="changePage('home', $event)">Home</a>
         </li>
         <li class="nav-item">
+          <div class="cart-item" *ngIf="cartQuantity>0"> {{cartQuantity}} </div>
           <a class="nav-link" (click)="changePage('contact', $event)">Cart</a>
         </li>
         <li class="nav-item">

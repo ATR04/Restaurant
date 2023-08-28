@@ -1,5 +1,5 @@
 <div class="margin">
-    <app-header (page)="gotoPage($event)"></app-header>
+    <app-header [removeTriggered]="removeTriggered" (page)="gotoPage($event)"></app-header>
     <div class="container" *ngIf="!isEditable">
         <div class="cart-empty-conatiner centre my-5" *ngIf="!(foodItems.length > 0)">
             <h1 class="cart-header">Let's Add something to the cart &nbsp;</h1>

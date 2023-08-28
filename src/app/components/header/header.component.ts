@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Injector, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,6 +8,12 @@ import * as $ from 'jquery';
 })
 export class HeaderComponent implements OnInit {
   @Output() page: EventEmitter<string> = new EventEmitter();
+  @Input('removeTriggered') removeTriggered: boolean;
+  @Input('addedToCart') addedToCart: boolean;
+  cartQuantity: number;
+
+  constructor() {
+  }
 
   ngOnInit() {
     $(window).on('scroll', function() {
@@ -17,6 +23,16 @@ export class HeaderComponent implements OnInit {
         $('.navbar').removeClass('fixed-top');
       }
     });
+    this.updateCartQuantity();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.updateCartQuantity();
+  }
+
+  updateCartQuantity() {
+    const cartItems = JSON.parse(localStorage.getItem('foodOrders'));
+    this.cartQuantity = cartItems.length;
   }
 
   changePage(page, $event?: any) {

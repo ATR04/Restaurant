@@ -37,3 +37,25 @@
 .navbar-brand {
   color: black;
 }
+
+.cart-item {
+  width: 24px;
+  text-align: center;
+  position: absolute;
+  bottom: 70px;
+  right: 120px;
+  border-radius: 50%;
+  background-color: #F8DE22;
+}
+
+.cart-item::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 17px;
+  width: 10px;
+  height: 10px;
+  background-color: #F8DE22;
+  transform: rotate(45deg);
+  z-index: -11;
+}

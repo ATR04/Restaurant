@@ -1,4 +1,4 @@
-import { Component, Injector } from '@angular/core';
+import { Component, EventEmitter, Injector, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodMenu} from '../../model/foodMenu'
 
@@ -12,6 +12,8 @@ export class ContactUsComponent {
   foodItems: FoodMenu[] = [];
   totalPrize: number = 0;
   isEditable:boolean = false;
+  isItemRemoved: boolean = false;
+  removeTriggered: boolean;
   selectedFoodItem: FoodMenu;
   updatedFoodItem: FoodMenu[] = [];
 
@@ -50,6 +52,7 @@ export class ContactUsComponent {
       return foodItem.id != removeItem.id;
     });
     localStorage.setItem('foodOrders', JSON.stringify(this.updatedFoodItem));
+    this.removeTriggered = !this.removeTriggered;
     this.updateCart();
   }
 

@@ -1,5 +1,5 @@
 <div class="margin">
-  <app-header (page)="gotoPage($event)"></app-header>
+  <app-header (page)="gotoPage($event)" [addedToCart]="isSelected"></app-header>
   <ng-container *ngIf="!isSelected">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
       <div class="carousel-inner">
