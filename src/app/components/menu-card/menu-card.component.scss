@@ -6,3 +6,11 @@
     width: 20rem;
     margin-top: 4rem;
 }
+
+.card {
+    transition: all 0.25s ease-out;
+    &:hover {
+        scale: 1.05;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+}

@@ -1,29 +1,37 @@
 <div class="margin">
     <app-header (page)="gotoPage($event)"></app-header>
-    <h1 class="cart-header">Let's Get this order on your table...!</h1>
-    <div class="cart-container my-4 centre" *ngFor="let foodItem of foodItems">
-        <div class="food-img-conatiner mx-4">
-            <img [src]="foodItem.img" alt="" class="food-img">
+    <div class="container" *ngIf="!isEditable">
+        <div class="cart-empty-conatiner centre my-5" *ngIf="!(foodItems.length > 0)">
+            <h1 class="cart-header">Let's Add something to the cart &nbsp;</h1>
+            <button class="btn btn-danger" (click)="gotoPage('home')">Order now</button>
         </div>
-        <div class="food-name-container">
-            <div class="food-name">{{foodItem.name}}</div>
-        </div>
-        <div class="food-prize centre">
-            <div class="food-quantity">${{foodItem.total}} <span class="food-total">({{foodItem.quantity}})</span></div>
-        </div>
-        <div class="food-edit-conatainer centre">
-            <div class="food-edit mx-2">
-                <img src="/assets/edit.png" alt="" class="edit-img">
+        <h1 class="cart-header" *ngIf="foodItems.length > 0">Let's Get this order on your table...!</h1>
+        <div class="cart-container my-4 centre" *ngFor="let foodItem of foodItems">
+            <div class="food-img-conatiner mx-4">
+                <img [src]="foodItem.img" alt="" class="food-img">
             </div>
-            <div class="food-remove mx-2">
-                <img src="/assets/minus-button.png" alt="" class="remove-img">
+            <div class="food-name-container">
+                <div class="food-name">{{foodItem.name}}</div>
             </div>
-        </div>   
-    </div>
-    <div class="total-container centre">
-        <div class="total-amount">Total Amount: <b class="total-orderAmt">${{totalPrize}}</b></div>
-        <div class="oder-btn">
-            <button class="btn btn-danger">Order Now</button>
+            <div class="food-prize centre">
+                <div class="food-quantity">${{foodItem.total}} <span class="food-total">({{foodItem.quantity}})</span>
+                </div>
+            </div>
+            <div class="food-edit-conatainer centre">
+                <div class="food-edit mx-2" (click)="editFoodItem(foodItem)">
+                    <img src="/assets/edit.png" alt="" class="edit-img">
+                </div>
+                <div class="food-remove mx-2" (click)="removeFoodItem(foodItem)">
+                    <img src="/assets/minus-button.png" alt="" class="remove-img">
+                </div>
+            </div>
+        </div>
+        <div class="total-container centre" *ngIf="foodItems.length > 0">
+            <div class="total-amount">Total Amount: <b class="total-orderAmt">${{totalPrize}}</b></div>
+            <div class="oder-btn">
+                <button class="btn btn-danger">Order Now</button>
+            </div>
         </div>
     </div>
+    <app-food-item [selectedFoodItem]="selectedFoodItem" (addtoCart)="updateCart($event)" *ngIf="isEditable"></app-food-item>
 </div>

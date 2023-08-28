@@ -33,7 +33,7 @@ export class HomeComponent {
   getMenu() {
     this.menuService.getMenu().subscribe((res) => {
       this.foodDatas = res;
-    });  
+    });   
   }
 
   gotoFoodItem(foodItem: any) {

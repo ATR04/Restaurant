@@ -23,6 +23,12 @@ export class FoodItemComponent implements OnInit{
     this.foodMenu.name = this.foodItem.name;
     this.foodMenu.img = this.foodItem.img;
     this.foodMenu.prize = this.foodItem.prize;
+    if(this.foodItem.total) {
+      this.foodMenu.total = this.foodItem.total;
+    }
+    if(this.foodItem.quantity) {
+      this.foodMenu.quantity = this.foodItem.quantity;
+    }
   }
 
   decrease($event) {
