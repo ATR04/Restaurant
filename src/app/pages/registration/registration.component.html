@@ -8,16 +8,22 @@
         <label for="formGroupExampleInput" class="form-label h2 effect"> Register </label>
       </div>
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.name" placeholder="ATR">
+        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.name" placeholder="ATR"
+        [ngClass]="{'error-input': errors['name']}">
         <label for="floatingInput">Name</label>
+        <div class="error-msg" *ngIf="errors['name']">{{errors['name']}}</div>
       </div>
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.email" placeholder="name@example.com">
+        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.email" placeholder="name@example.com"
+        [ngClass]="{'error-input': errors['email']}">
         <label for="floatingInput">Email address</label>
+        <div class="error-msg" *ngIf="errors['email']">{{errors['email']}}</div>
       </div>
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.password" placeholder="123456">
+        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.password" placeholder="123456"
+        [ngClass]="{'error-input': errors['password']}">
         <label for="floatingInput">Password</label>
+        <div class="error-msg" *ngIf="errors['password']">{{errors['password']}}</div>
       </div>
       <div class="centre mb-3">
         <button type="button" class="btn btn-primary" (click)="register()">Register</button>

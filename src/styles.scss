@@ -9,3 +9,14 @@ body, html {
   justify-content: center;
 }
 
+.error-msg {
+  color: red;
+  font-size: 0.9rem;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.error-input {
+  border-color: #ff0000;
+  box-shadow: rgba(248, 98, 64, 0.12) 0px 2px 4px 0px, rgba(249, 62, 62, 0.32) 0px 2px 16px 0px;
+}
+

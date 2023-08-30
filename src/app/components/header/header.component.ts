@@ -32,7 +32,9 @@ export class HeaderComponent implements OnInit {
 
   updateCartQuantity() {
     const cartItems = JSON.parse(localStorage.getItem('foodOrders'));
-    this.cartQuantity = cartItems.length;
+    if(cartItems) {
+      this.cartQuantity = cartItems.length;
+    }
   }
 
   changePage(page, $event?: any) {

@@ -24,6 +24,7 @@ export class HomeComponent {
   gotoPage(page) {
 
     if (page === 'logout') {
+      localStorage.removeItem('foodOrders');
       this.router.navigateByUrl('/login');
     } else {
       this.router.navigateByUrl(`/${page}`);

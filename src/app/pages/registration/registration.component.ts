@@ -12,6 +12,7 @@ export class RegistrationComponent {
 
   userService: UserService;
   user: UserModel;
+  errors: any = {};
 
   constructor(private router: Router, injector: Injector) {
     this.userService = injector.get(UserService);
@@ -23,21 +24,47 @@ export class RegistrationComponent {
   }
 
   register() {
-    this.userService.registerUser(this.user).subscribe(
-      {
-        next : (res) => { 
-          if (res.success == true) {
-            alert("Registration successful!");
-            this.user.email = '';
-            this.user.name = '';
-            this.user.password = '';  
-          } else {
-            alert(res.message);
-          }
-         },
-        error: (err) => { console.log(err); }     
-      }
-    );
+    const isValid = this.validate();
+
+    if (isValid) {
+      this.userService.registerUser(this.user).subscribe(
+        {
+          next : (res) => { 
+            if (res.success == true) {
+              alert("Registration successful!");
+              this.router.navigateByUrl('/home');
+              this.user.email = '';
+              this.user.name = '';
+              this.user.password = '';
+            } else {
+              alert(res.message);
+            }
+          },
+          error: (err) => { console.log(err); }     
+        }
+      );
+    }
+  }
+
+  validate() {
+    let isValid = true;
+    this.errors = {};
+
+    if (!this.user.name) {
+      isValid = false;
+      this.errors['name'] = 'Please enter your name';
+    }
+
+    if (!this.user.email) {
+      isValid = false;
+      this.errors['email'] = 'Please enter your email';
+    }
+
+    if (!this.user.password) {
+      isValid = false;
+      this.errors['password'] = 'Please enter your password';
+    }
+    return isValid;
   }
 
 }

@@ -9,9 +9,9 @@ import { UserModel } from '../../model/userModel';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
-  user: UserModel
+  user?: UserModel;
   userService: UserService;
+  errors: any = {};
 
   constructor(private router: Router, injector: Injector) {
     this.userService = injector.get(UserService);
@@ -23,20 +23,40 @@ export class LoginComponent {
   }
 
   login() {
-    this.userService.getUser(this.user).subscribe(
-      {
-        next: (res) => { 
+    const isValid = this.validate();
+
+    if (isValid) {
+      this.userService.getUser(this.user).subscribe({
+        next: (res) => {
           if (res.success == true) {
-            alert("Logged in sucessfully");
+            alert('Logged in sucessfully');
             this.router.navigateByUrl('/home');
             this.user.email = '';
-            this.user.password = '';  
+            this.user.password = '';
           } else {
             alert(res.message);
           }
         },
-        error: (err) => { console.log(err); }
-      }
-    )
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
+  }
+
+  validate() {
+    let isValid = true;
+    this.errors = {};
+
+    if (!this.user.email) {
+      isValid = false;
+      this.errors['email'] = 'Please enter the email';
+    }
+
+    if (!this.user.password) {
+      isValid = false;
+      this.errors['password'] = 'Please enter the password';
+    }
+    return isValid;
   }
 }

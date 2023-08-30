@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ComponentsModule } from '../components/components.module';
 import { ContactUsComponent } from './contact-us/contact-us.component';

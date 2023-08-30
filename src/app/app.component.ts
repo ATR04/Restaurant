@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'restaurant';
+
+  public doUnload(): void {
+    this.doBeforeUnload();
+  }
+
+  public doBeforeUnload(): void {
+    localStorage.removeItem('foodOrders');
+  }
 }

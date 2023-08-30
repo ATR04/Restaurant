@@ -1,7 +1,7 @@
 <div class="margin">
     <app-header [removeTriggered]="removeTriggered" (page)="gotoPage($event)"></app-header>
     <div class="container" *ngIf="!isEditable">
-        <div class="cart-empty-conatiner centre my-5" *ngIf="!(foodItems.length > 0)">
+        <div class="cart-empty-conatiner centre my-5" *ngIf="(!foodItems || foodItems.length == 0)">
             <h1 class="cart-header">Let's Add something to the cart &nbsp;</h1>
             <button class="btn btn-danger" (click)="gotoPage('home')">Order now</button>
         </div>
@@ -33,5 +33,6 @@
             </div>
         </div>
     </div>
-    <app-food-item [selectedFoodItem]="selectedFoodItem" (addtoCart)="updateCart($event)" *ngIf="isEditable"></app-food-item>
+    <app-food-item [selectedFoodItem]="selectedFoodItem" (addtoCart)="updateCart($event)"
+        *ngIf="isEditable"></app-food-item>
 </div>
