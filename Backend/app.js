@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect("mongodb://127.0.0.1:27017/restaurantDB").then(() => {
+mongoose.connect("mongodb://0.0.0.0:27017/restaurantDB").then(() => {
     console.log("connected to database!");
 });
 
