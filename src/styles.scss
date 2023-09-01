@@ -20,3 +20,11 @@ body, html {
   box-shadow: rgba(248, 98, 64, 0.12) 0px 2px 4px 0px, rgba(249, 62, 62, 0.32) 0px 2px 16px 0px;
 }
 
+.toast-container.toast-top-center .ngx-toastr, .toast-container.toast-bottom-center .ngx-toastr {
+  margin-top: 20px;
+}
+.toast-top-center.toast-container {
+  .toast-info {
+    background-color: #F8DE22 ;
+  }
+}

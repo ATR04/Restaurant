@@ -2,6 +2,7 @@ import { Component, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserModel } from '../../model/userModel';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -13,9 +14,12 @@ export class RegistrationComponent {
   userService: UserService;
   user: UserModel;
   errors: any = {};
+  toast: ToastrService;
+
 
   constructor(private router: Router, injector: Injector) {
     this.userService = injector.get(UserService);
+    this.toast = injector.get(ToastrService);
     this.user = new UserModel;
   }
 
@@ -31,13 +35,17 @@ export class RegistrationComponent {
         {
           next : (res) => { 
             if (res.success == true) {
-              alert("Registration successful!");
+              this.toast.success("Registration successful!", '',{
+                positionClass: 'toast-top-center'
+              });
               this.router.navigateByUrl('/home');
               this.user.email = '';
               this.user.name = '';
               this.user.password = '';
             } else {
-              alert(res.message);
+              this.toast.error(res.message, '',{
+                positionClass: 'toast-top-center'
+              });
             }
           },
           error: (err) => { console.log(err); }     

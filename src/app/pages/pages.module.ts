@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ComponentsModule } from '../components/components.module';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
+
 const routes: Routes = [
   { path: '', 
     redirectTo: 'register', 

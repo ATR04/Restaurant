@@ -9,6 +9,7 @@ import * as $ from 'jquery';
 export class HeaderComponent implements OnInit {
   @Output() page: EventEmitter<string> = new EventEmitter();
   @Input('removeTriggered') removeTriggered: boolean;
+  @Input('isOrderPlaced') isOrderPlaced: boolean;
   @Input('addedToCart') addedToCart: boolean;
   cartQuantity: number;
 
@@ -34,6 +35,10 @@ export class HeaderComponent implements OnInit {
     const cartItems = JSON.parse(localStorage.getItem('foodOrders'));
     if(cartItems) {
       this.cartQuantity = cartItems.length;
+    }
+
+    if(cartItems == null) {
+      this.cartQuantity = 0
     }
   }
 

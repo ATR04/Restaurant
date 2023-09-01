@@ -2,6 +2,7 @@ import { Component, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserModel } from '../../model/userModel';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,11 @@ export class LoginComponent {
   user?: UserModel;
   userService: UserService;
   errors: any = {};
+  toast: ToastrService;
 
   constructor(private router: Router, injector: Injector) {
     this.userService = injector.get(UserService);
+    this.toast = injector.get(ToastrService);
     this.user = new UserModel();
   }
 
@@ -29,12 +32,16 @@ export class LoginComponent {
       this.userService.getUser(this.user).subscribe({
         next: (res) => {
           if (res.success == true) {
-            alert('Logged in sucessfully');
+            this.toast.success('Logged in sucessfully', '',{
+              positionClass: 'toast-top-center'
+            });
             this.router.navigateByUrl('/home');
             this.user.email = '';
             this.user.password = '';
           } else {
-            alert(res.message);
+            this.toast.error(res.message, '',{
+              positionClass: 'toast-top-center'
+            });
           }
         },
         error: (err) => {

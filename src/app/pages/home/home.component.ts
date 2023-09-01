@@ -1,6 +1,7 @@
 import { Component, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,14 @@ export class HomeComponent {
   foodDatas: any;
   router: Router;
   menuService: MenuService;
+  toast: ToastrService;
   selectedFoodItem: any;
   isSelected: boolean = false;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
     this.menuService = injector.get(MenuService);
+    this.toast = injector.get(ToastrService);
     this.getMenu();
   }
 
@@ -25,6 +28,9 @@ export class HomeComponent {
 
     if (page === 'logout') {
       localStorage.removeItem('foodOrders');
+      this.toast.success('Logged out successfully', '',{
+        positionClass: 'toast-top-center'
+      });
       this.router.navigateByUrl('/login');
     } else {
       this.router.navigateByUrl(`/${page}`);

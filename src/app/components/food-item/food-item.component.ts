@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FoodMenu } from '../../model/foodMenu';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-food-item',
@@ -13,7 +14,7 @@ export class FoodItemComponent implements OnInit{
 
   foodMenu: FoodMenu;
 
-  constructor() {
+  constructor(private toast: ToastrService) {
     this.foodMenu = new FoodMenu();
     this.foodMenu.quantity = 1;
   }
@@ -70,5 +71,8 @@ export class FoodItemComponent implements OnInit{
     }
   
     this.addtoCart.emit();
+    this.toast.info('Added to cart', '',{
+      positionClass: 'toast-top-center'
+    });
   }
 }

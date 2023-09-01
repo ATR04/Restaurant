@@ -1,10 +1,11 @@
 <div class="margin">
-    <app-header [removeTriggered]="removeTriggered" (page)="gotoPage($event)"></app-header>
+  <app-header [removeTriggered]="removeTriggered" [isOrderPlaced]="isOrderPlaced" (page)="gotoPage($event)"></app-header>
     <div class="container" *ngIf="!isEditable">
         <div class="cart-empty-conatiner centre my-5" *ngIf="(!foodItems || foodItems.length == 0)">
             <h1 class="cart-header">Let's Add something to the cart &nbsp;</h1>
             <button class="btn btn-danger" (click)="gotoPage('home')">Order now</button>
         </div>
+        <div *ngIf="foodItems">
         <h1 class="cart-header" *ngIf="foodItems.length > 0">Let's Get this order on your table...!</h1>
         <div class="cart-container my-4 centre" *ngFor="let foodItem of foodItems">
             <div class="food-img-conatiner mx-4">
@@ -26,12 +27,14 @@
                 </div>
             </div>
         </div>
+    
         <div class="total-container centre" *ngIf="foodItems.length > 0">
             <div class="total-amount">Total Amount: <b class="total-orderAmt">${{totalPrize}}</b></div>
             <div class="oder-btn">
-                <button class="btn btn-danger">Order Now</button>
+                <button class="btn btn-danger" (click)="placeOrder($event)">Order Now</button>
             </div>
         </div>
+    </div>
     </div>
     <app-food-item [selectedFoodItem]="selectedFoodItem" (addtoCart)="updateCart($event)"
         *ngIf="isEditable"></app-food-item>
