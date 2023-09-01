@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect("mongodb+srv://admin:xnuCWpNCEB7bbGPz@atr.pexpsfr.mongodb.net/atr?retryWrites=true&w=majority").then(() => {
+mongoose.connect("mongodb+srv://admin:xnuCWpNCEB7bbGPz@atr.pexpsfr.mongodb.net/restaurantDB?retryWrites=true&w=majority").then(() => {
     console.log("connected to database!");
 });
 
@@ -30,10 +30,11 @@ const User = mongoose.model("User", userSchema);
 const Food = mongoose.model("Food", foodSchema);
 
 // const food = new Food(
-//     {name: "Ice cream",
-//     id: 9, 
-//     prize: '$7',
-//     img: "https://img.freepik.com/premium-photo/chocolate-vanilla-strawberry-ice-cream-isolated-white_807701-3441.jpg?size=626&ext=jpg&ga=GA1.2.1512689358.1683527575&semt=ais"
+//     {
+//     name: "Chicken grill",
+//     id: 8, 
+//     prize: '12',
+//     img: "https://img.freepik.com/premium-photo/high-quality-grilling-chicken-meat-shashlik-metal-skewers_779468-1058.jpg?size=626&ext=jpg&ga=GA1.1.1512689358.1683527575&semt=sph"
 //     }	
 // );
 
