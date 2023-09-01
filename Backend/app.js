@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect("mongodb+srv://admin:xnuCWpNCEB7bbGPz@atr.pexpsfr.mongodb.net/restaurantDB?retryWrites=true&w=majority").then(() => {
+mongoose.connect("mongodb+srv://admin:xnuCWpNCEB7bbGPz@atr.pexpsfr.mongodb.net/atr?retryWrites=true&w=majority").then(() => {
     console.log("connected to database!");
 });
 
