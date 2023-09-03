@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MenuService {
 
-  baseUrl: string = "http://localhost:3000";
+  baseUrl: string = "https://spizey.onrender.com";
 
   constructor(private http: HttpClient) { }
 

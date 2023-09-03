@@ -8,7 +8,7 @@ import { UserModel } from '../model/userModel';
 })
 export class UserService {
 
-  baseUrl: string = "http://localhost:3000"
+  baseUrl: string = "https://spizey.onrender.com"
 
   constructor(private http: HttpClient) {}
 
